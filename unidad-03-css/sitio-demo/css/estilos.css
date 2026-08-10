@@ -1,12 +1,17 @@
 /* css/estilos.css */
 /*Resat básico*/
-
+/*100% del tamaño que el usurio configurò por onisiòn son 16px,*/
+html{
+font-size:100%;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }/*esta ragla elimina los márgenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
 body {
+  font-size: lrem;
+  line-height: 1.6;
   font-family: Arial, sans-serif;
   color: #3f3f3f;
   background-color: #d5c0c0;
@@ -16,4 +21,131 @@ h1 {
   font-size: 32px;
   text-align: center;
 }
+h1{
+  font-size: 2.Srem;
+  font-weight: 700;
+}
+h2{
+   font-size: 2.Srem;
+  font-weight: 700;
+}
+h3{
+   font-size: 1.Srem;
+    font-weight: 700;
+}
+p{
+  font-size: lrem;
+  font-weight: 400;
+}
+header{
+  background-color: antiquewhite;
+  color: #3f3f3f;
+}
+.portada-texto{
+  background-color: aliceblue(0, 40, 0, 0.35);
+  padding: 24px;
+  border-radius: 8px;
 
+}
+h2, h3{
+  color: #c55a11;
+}
+main p {
+    max-width: 70ch;
+ /*ch es el ancho del carater cero de la funenet en uso. el valor 70 marca el rango de lectura comoda por línea o renglón. más larga, la vista se pierde al cambiar de linea*/  
+    main a{
+      text-decoration: none;
+      border-bottom: 1px solid #d5c0c0;
+}
+
+/*transformacion y espacio*/
+header nav a {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* Aplicar estilos a clases */
+.destacado{
+    color: #fff3cd;
+    padding: 10px;
+}
+
+/* Aplicar estilos a identificadores o IDs */
+
+#inicio{
+    background-color:#3f72a1;
+    padding: 30px;
+}
+
+/* Estilos solo enlaces dentro del nav */
+nav a{
+    /* background-color: #fff; */
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+/* psuedo-clase :hover */
+nav a:hover{
+    color: #f8cbad;
+}
+
+/* Pseudo-class : nth-child: fila cebra en la tabla */
+tbody tr:nth-child(even){
+    background-color: #bd9c9c;
+}
+
+article p:first-letter{
+    font-size: 32px;
+    font-weight: bold;
+    color: #c55a11;
+}
+
+::selection{
+    background-color: #1f4e79;
+    color: white;
+}
+
+/* Aagragarr famila de fuentes traida de goofle fonts */
+body{
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* Actividad de comprobacion S12 */
+
+.recordatorio{
+    background-color: #1f4e79;
+    padding: 10px;
+}
+
+#inicio{
+    background-color: #003363;
+}
+
+#inicio nav li{
+    list-style: none;
+}
+
+#inicio nav a{
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+#inicio nav a:hover{
+    color: #92c0db;
+    text-decoration: none;
+}
+
+tbody tr:nth-child(even){
+    background-color: #dff9fd;
+}
+
+article p:first-letter{
+    font-size: 24px;
+    font-weight: bold;
+    color: #686868;
+}}
