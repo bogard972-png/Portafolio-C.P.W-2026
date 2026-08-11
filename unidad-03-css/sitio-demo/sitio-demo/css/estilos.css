@@ -18,6 +18,18 @@ body {
     background-color: #fcfcfc;
 
 }/*esta regla define la fuente y el color del texto en el cuerpo del documento*/
+.contenedor{
+    max-width: 1000px;
+    margin: 0 auto;
+    /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
+    lo centra en un elemento con ancho limitado*/
+}
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+    /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
+    lo centra en un elemento con ancho limitado*/
+}
 h1{
     color: #fff;
     text-align: center;
@@ -37,6 +49,7 @@ h3 {
 p {
     font-size: 1rem;
     font-weight: 400;
+    margin-bottom: 16px;
 }
 
 header {
@@ -57,6 +70,7 @@ footer{
 
 h2, h3 {
     color: #1f4e79;
+    margin-bottom: 12px;
 }
 main p {
     max-width: 70ch;
@@ -125,6 +139,31 @@ article p::first-letter {
 ::selection {
     background-color: #1f4e79;
     color: white;
+}
+aside{
+    padding: 20px;
+    border: 2px solid #c55a11;
+    border-radius: 8px;
+}
+/*En este caso el padding aplica a los 4 lados a la vez 
+padding:10px 20px aplica vertical y horizontal 
+padding:10px 20px 15px 5px aplica a los 4 lados valores distintos En el sentido de las manillas del reloj*/
+
+/*Aplica lado por lado
+padding-top 10px arriba
+padding-right 10px derecha
+padding-bottom 10px abajo
+padding-left 10px izquierda*/
+
+/*aplica a la tabla horarios.ttml*/
+th, td{
+    padding: 10px;
+}
+fieldset{
+    padding: 16px;
+}
+section{
+    margin-bottom: 16px;
 }
 
 /*Agregar familia de fuentes traida de google fonts*/
