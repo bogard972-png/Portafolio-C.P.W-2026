@@ -158,7 +158,19 @@ padding-left 10px izquierda*/
 /*aplica a la tabla horarios.ttml*/
 th, td{
     padding: 10px;
+    border: 1px solid #dddddddd;
+    text-align: left;
 }
+thead th{
+    background-color: #1f4e79;
+    color: white;
+}
+tfoot td{
+    padding: 12px;
+    font-style: italic;
+    background-color: #f5f7fa;
+}
+
 fieldset{
     padding: 16px;
 }
@@ -170,4 +182,34 @@ section{
 body {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     line-height: 1.6;
+}
+/*listas de horario.html*/
+main ul,main ol{
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+main li{
+    margin-bottom: 6px;
+}
+/*la lista descriptiva*/
+#glosario dt{
+    font-weight: 700;
+    margin-top: 12px;
+}
+#glosario dd{
+    margin-left: 20px;
+    margin-bottom: 8px;
+}/*la sagría de <dd> es lo que hace visible la ralación entre el
+termino y su decripcion*/
+
+/*la tabla de caledario*/
+table{
+    border-collapse: collapse;
+    width: 100;
+    margin-bottom: 24px;
+}
+caption{
+    padding: 8px;
+    font-weight: 700;
+    margin-bottom: 24px;
 }
