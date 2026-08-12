@@ -2,148 +2,152 @@
 /* Reset básico*/
 /*100% del tamaño que el ususrio configuró
 Por omisión son 16px, */
-html{
-    font-size: 100%;
+html {
+  font-size: 100%;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}/*esta regla elimina los márgenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /*esta regla elimina los márgenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
 body {
-    font-size: 1rem;
-    line-height: 1.6;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #fcfcfc;
-
-}/*esta regla define la fuente y el color del texto en el cuerpo del documento*/
-.contenedor{
-    max-width: 1000px;
-    margin: 0 auto;
-    /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fcfcfc;
+} /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
     lo centra en un elemento con ancho limitado*/
 }
-main{
-    max-width: 1000px;
-    margin: 0 auto;
-    /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  /*0 aplica a la parte vertecal y horizontal el auto: reparte el espacio sobrante por igual a ambos lados
     lo centra en un elemento con ancho limitado*/
-}
-h1{
-    color: #fff;
-    text-align: center;
 }
 h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 h2 {
-    font-size: 2rem;
-    font-weight: 700;
+  font-size: 2rem;
+  font-weight: 700;
 }
 h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 p {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 16px;
 }
 
 header {
-    background-color: #1f4e79;
-    color: white;
+  background-color: #1f4e79;
+  color: white;
 }
-footer{
-    background-color: #dce6f1;
-    padding: 20px;
-    margin-top: 32px;
+footer {
+  background-color: #dce6f1;
+  padding: 20px;
+  margin-top: 32px;
 }
 .portada-texto {
-    background-color: rgba(0, 0, 40, 0.35); 
-    padding: 24px;
-    border-radius: 8px;
+  background-color: rgba(0, 0, 40, 0.35);
+  padding: 24px;
+  border-radius: 8px;
 }
 
-
-h2, h3 {
-    color: #1f4e79;
-    margin-bottom: 12px;
+h2,
+h3 {
+  color: #1f4e79;
+  margin-bottom: 12px;
 }
 main p {
-    max-width: 70ch;
-}/*ch es el ancho del carater cero de la fuenete en uso. el valor 70 marca el rango
+  max-width: 70ch;
+} /*ch es el ancho del carater cero de la fuenete en uso. el valor 70 marca el rango
 de lectura cómoda por línea o renglón. más larga, la vista se pierde al cambia de línea*/
 main a {
-    text-decoration: none;
-    border-bottom: 1px solid #1f4e79;
+  text-decoration: none;
+  border-bottom: 1px solid #1f4e79;
 }
 
 blockquote p {
-    font-style: italic;
-    color: #555;
+  font-style: italic;
+  color: #555;
 }
 
 /* Transformacion y espacio*/
 
 header nav a {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    text-decoration: none;
-
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 10px 15px;
 }
 header ul li {
-    list-style-type: none;
+  list-style-type: none;
+}
+nav li {
+  margin-right: 15px;
+}
+header nav li {
+  display: inline-block;
 }
 /*Aplicar estilos a clases*/
 .destacado {
-    background-color: #fff3cd;
-    padding: 10px; /*aplica com las manillas del reloj: ariba - derecha - abajo - izquierda*/
+  background-color: #fff3cd;
+  padding: 10px; /*aplica com las manillas del reloj: ariba - derecha - abajo - izquierda*/
 }
-
 
 /*Aplicar estilos a identificadores o IDs*/
 #inicio {
-    background-image: url(../recursos/fondo1.avif);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px;
+  background-image: url(../recursos/fondo1.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
 }
 
 /*estilos solo a enlces dentro del nav*/
 nav a {
-    color: #fff;
-    margin-right: 15px;
-    transition: color 0.3s; /*cambio suave */
+  color: #fff;
+  margin-right: 15px;
+  transition: color 0.3s; /*cambio suave */
 }
 /*Pseudo-clase :hober*/
 nav a:hover {
-    color: #f8cbad; /*al pasar el cursor*/
+  color: #f8cbad; /*al pasar el cursor*/
 }
 
 /*Pseudo-clase :nth-child: filas cebra en la tabla*/
-tbody tr:nth-child(even){
-    background-color: #e0d8d8;
+tbody tr:nth-child(even) {
+  background-color: #e0d8d8;
 }
 /*Pseudo-elemento ::first-letter y ::selection*/
 article p::first-letter {
-    font-size: 32px;
-    font-weight: bold;
-    color: #c55a11;
+  font-size: 32px;
+  font-weight: bold;
+  color: #c55a11;
 }
 
 ::selection {
-    background-color: #1f4e79;
-    color: white;
+  background-color: #1f4e79;
+  color: white;
 }
-aside{
-    padding: 20px;
-    border: 2px solid #c55a11;
-    border-radius: 8px;
+aside {
+  padding: 20px;
+  border: 2px solid #c55a11;
+  border-radius: 8px;
 }
 /*En este caso el padding aplica a los 4 lados a la vez 
 padding:10px 20px aplica vertical y horizontal 
@@ -156,60 +160,70 @@ padding-bottom 10px abajo
 padding-left 10px izquierda*/
 
 /*aplica a la tabla horarios.ttml*/
-th, td{
-    padding: 10px;
-    border: 1px solid #dddddddd;
-    text-align: left;
+th,
+td {
+  padding: 10px;
+  border: 1px solid #dddddddd;
+  text-align: left;
 }
-thead th{
-    background-color: #1f4e79;
-    color: white;
+thead th {
+  background-color: #1f4e79;
+  color: white;
 }
-tfoot td{
-    padding: 12px;
-    font-style: italic;
-    background-color: #f5f7fa;
+tfoot td {
+  padding: 12px;
+  font-style: italic;
+  background-color: #f5f7fa;
 }
 
-fieldset{
-    padding: 16px;
+fieldset {
+  padding: 16px;
 }
-section{
-    margin-bottom: 16px;
+section {
+  margin-bottom: 16px;
 }
 
 /*Agregar familia de fuentes traida de google fonts*/
 body {
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
 /*listas de horario.html*/
-main ul,main ol{
-    padding-left: 24px;
-    margin-bottom: 16px;
+main ul,
+main ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
 }
-main li{
-    margin-bottom: 6px;
+main li {
+  margin-bottom: 6px;
 }
 /*la lista descriptiva*/
-#glosario dt{
-    font-weight: 700;
-    margin-top: 12px;
+#glosario dt {
+  font-weight: 700;
+  margin-top: 12px;
 }
-#glosario dd{
-    margin-left: 20px;
-    margin-bottom: 8px;
-}/*la sagría de <dd> es lo que hace visible la ralación entre el
+#glosario dd {
+  margin-left: 20px;
+  margin-bottom: 8px;
+} /*la sagría de <dd> es lo que hace visible la ralación entre el
 termino y su decripcion*/
 
 /*la tabla de caledario*/
-table{
-    border-collapse: collapse;
-    width: 100;
-    margin-bottom: 24px;
+table {
+  border-collapse: collapse;
+  width: 100;
+  margin-bottom: 24px;
 }
-caption{
-    padding: 8px;
-    font-weight: 700;
-    margin-bottom: 24px;
+caption {
+  padding: 8px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
+/*los 5 valores de position
+static: valor por omision
+relative: se desplaza desde su propia posición, conserva su propia posición y los elementos vecios no se mueven
+absolute: se ubica respecto al ancestro mas cercano
+fixed: se ubica respecto a la ventana no se mueve al desplazarse
+sticky: fluye normal hasta llagar  a umbral, y entonces se pega*/
+
+/*patron para este caso*/
