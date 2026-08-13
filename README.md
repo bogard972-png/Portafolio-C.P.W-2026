@@ -50,7 +50,7 @@ Portafolio-Codificación de Páginas Web/
 
 | Sesión | Tema         | Qué aprendí                            |      Trabajo      |     Captura      |
 | :----: | :----------- | :------------------------------------- | :---------------: | :--------------: |
-|  S01   | Git y GitHub | _(escribir aquí con palabras propias)_ | [ver](unidad-01/) | [ver](recursos/) |
+|  S01   | Git y GitHub | Introduccion y uso de git y github  | [ver](unidad-01/) | [ver](recursos/) |
 
 <details markdown="1">
 <summary><b>Unidad 2 · Etiquetas y atributos HTML</b> (sesiones 2 a 8)</summary>
@@ -58,12 +58,12 @@ Portafolio-Codificación de Páginas Web/
 | Sesión | Tema                           | Qué aprendí                                          |      Trabajo      |     Captura      |
 | :----: | :----------------------------- | :--------------------------------------------------- | :---------------: | :--------------: |
 |  S02   | Git colaborativo, la web y XML | Aprendi sobre comandos git para trabajo colaborativo | [ver](unidad-02/) | [ver](recursos/) |
-|  S03   | Estructura del documento HTML5 |                                                      | [ver](unidad-02/) | [ver](recursos/) |
-|  S04   | Texto, enlaces y anclas        |                                                      | [ver](unidad-02/) | [ver](recursos/) |
-|  S05   | Listas y tablas                |                                                      | [ver](unidad-02/) | [ver](recursos/) |
-|  S06   | Formularios y semántica        |                                                      | [ver](unidad-02/) | [ver](recursos/) |
-|  S07   | Multimedia                     |                                                      | [ver](unidad-02/) | [ver](recursos/) |
-|  S08   | SVG y repaso                   |                                                      | [ver](unidad-02/) | [ver](recursos/) |
+|  S03   | Estructura del documento HTML5 | Estructura principal de html y etiquetas             | [ver](unidad-02/) | [ver](recursos/) |
+|  S04   | Texto, enlaces y anclas        | Etiquta meta e implementacion de icono en pestaña    | [ver](unidad-02/) | [ver](recursos/) |
+|  S05   | Listas y tablas                | Estructura y funcionamiento de listas y tabalas      | [ver](unidad-02/) | [ver](recursos/) |
+|  S06   | Formularios y semántica        |Estructura y funcionamiento de Formularios y semnatica| [ver](unidad-02/) | [ver](recursos/) |
+|  S07   | Multimedia                     | Semanticas, archvos y estructuras para multimedia    | [ver](unidad-02/) | [ver](recursos/) |
+|  S08   | SVG y repaso                   |  Imagen svg, etiqueta y estructuras de html          | [ver](unidad-02/) | [ver](recursos/) |
 
 </details>
 
@@ -72,11 +72,11 @@ Portafolio-Codificación de Páginas Web/
 
 | Sesión | Tema                       | Qué aprendí |      Trabajo      |     Captura      |
 | :----: | :------------------------- | :---------- | :---------------: | :--------------: |
-|  S11   | Introducción a CSS         |             | [ver](unidad-03/) | [ver](recursos/) |
-|  S12   | Selectores y pseudo-clases |             | [ver](unidad-03/) | [ver](recursos/) |
-|  S13   | Tipografía y color         |             | [ver](unidad-03/) | [ver](recursos/) |
-|  S14   | Modelo de cajas            |             | [ver](unidad-03/) | [ver](recursos/) |
-|  S15   | Display y posicionamiento  |             | [ver](unidad-03/) | [ver](recursos/) |
+|  S11   | Introducción a CSS         |introduccion de css (reglas y configuraciones)      | [ver](unidad-03/) | [ver](recursos/) |
+|  S12   | Selectores y pseudo-clases |Uso y aplicacion de selectores, pseudo-clases y links de tipografias| [ver](unidad-03/) | [ver](recursos/) |
+|  S13   | Tipografía y color         |Tipografia, color y fondos: uso, aplicacionciones y medidas para paginas web| [ver](unidad-03/) | [ver](recursos/) |
+|  S14   | Modelo de cajas            | Medidas, usos, posiciones y funcionamiento  | [ver](unidad-03/) | [ver](recursos/) |
+|  S15   | Display y posicionamiento  |  Aplcacion funciones y usos  | [ver](unidad-03/) | [ver](recursos/) |
 |  S16   | Flexbox                    |             | [ver](unidad-03/) | [ver](recursos/) |
 |  S17   | CSS Grid                   |             | [ver](unidad-03/) | [ver](recursos/) |
 |  S18   | Componentes estilizados    |             | [ver](unidad-03/) | [ver](recursos/) |
