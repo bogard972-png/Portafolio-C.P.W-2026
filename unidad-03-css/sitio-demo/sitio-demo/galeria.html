@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <div class="contenedor">
 <body>
     <!-- CABECERA (Sesión 6) -->
@@ -35,26 +36,29 @@
 
     <article>
         <h2>Galería</h2>
-
-        <!--Imagen y sus atributos-->
-        <img src="recursos/S.7_Lab01.jpg" alt="Imagen de la galería de un laboratorio de informática" width="600" height="400" />
-
-        <!--FIGURE: AGRUPA UN CONTENIDO CON UN PIE-->
-        <figure>
-            <img src="recursos/S.7_Lab02.jpg" alt="Imagen de la galería de un laboratorio de informática" width="800" height="500" />
+      <div class="tarjeta">
+          <!--Imagen y sus atributos-->
+          <figure>
+          <img src="recursos/S.7_Lab01.jpg" alt="Imagen de la galería de un laboratorio de informática" width="400" height="300" />
             <figcaption>Imagen de un laboratorio de informática</figcaption>
-        </figure>
+          </figure>
+          <!--FIGURE: AGRUPA UN CONTENIDO CON UN PIE-->
+          <figure>
+              <img src="recursos/S.7_Lab02.jpg" alt="Imagen de la galería de un laboratorio de informática" width="400" height="300" />
+              <figcaption>Imagen de un laboratorio de informática</figcaption>
+          </figure>
 
-        <!-- VARIOS FORMATOS: el navegador elige el uno -->
-        <figure class="figura-destacada">
-            <picture>
-                <source srcset="recursos/S.7_Lab01.webp" type="image/webp" />
-                <source srcset="recursos/S.7_Lab02.jpg" type="image/jpeg" />
-                <img src="recursos/S.7_Lab01.jpg" alt="Imagen de la galería de un laboratorio de informática" width="800" height="500" />
-            </picture>
-            <span class="etiquetas">destacada</span>
-            <figcaption>Imagen de un laboratorio de informática</figcaption>
-        </figure>
+          <!-- VARIOS FORMATOS: el navegador elige el uno -->
+          <figure class="figura-destacada">
+              <picture>
+                  <source srcset="recursos/S.7_Lab01.webp" type="image/webp" />
+                  <source srcset="recursos/S.7_Lab02.jpg" type="image/jpeg" />
+                  <img src="recursos/S.7_Lab01.jpg" alt="Imagen de la galería de un laboratorio de informática" width="400" height="300" />
+              </picture>
+              <span class="etiqueta">Destacada</span>
+              <figcaption>Imagen de un laboratorio de informática</figcaption>
+          </figure>
+        </div>
     
 
         <!--AUDIO-->
@@ -95,7 +99,7 @@
     <address>
       Instituto Nacional de Aprendizaje<br>
       Núcleo Comercio y Servicios<br>
-      Correo: <a href="mailto:Aleksandr57@ejemplo.com">Aleksandr57@ejemplo.com</a>
+      Correo: <a href="mailto:aleksandr57@ejemplo.com">aleksandr57@ejemplo.com</a>
     </address>
     <p>
       Recurso externo:
@@ -105,7 +109,7 @@
     </p>
     <p><small>&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small></p>
   </footer>
-
+</div>
 </body>
 </div>
 </html>
