@@ -116,6 +116,14 @@ header nav a {
     font-size: 0.9rem;
     text-decoration: none;
     padding: 10px 15px;
+    color: #ffff;
+    margin-right: 15px;
+    transition: color 0.3s; /*cambio suave */
+    /*ease:Arranca lento y acelera y frena. omision
+      linear: Velocidad constante
+      ease-in: Arranca lento
+      ease-out Sale lento
+      easeint-out; lento en los dos extremos*/
 }
 
 header nav {
@@ -153,16 +161,8 @@ header nav {
     top: 0;
 }*/
 
-
-/*Aplicar estilos a identificadores  o IDs*/
-nav a{
-    color: #ffff;
-    margin-right: 15px;
-    transition: color 0.3s; /*cambio suave */
-}
-
 /*Pseudo-clase :hover*/
-nav a:hover {
+header a:hover {
     color: #f8cbad; /*al pasar el cursor*/
 }
 
@@ -302,6 +302,9 @@ sticky: Fluye normal asta llegar a un umbral,ej-(stroll arriba) y entonces se pe
 
 .figura-destacada {
     position: relative;/*posiona como padre y este no se mueve. Es referencia de hijos absolutos*/
+}
+.figura-destacada:hover .etiqueta {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .etiqueta {
@@ -502,6 +505,9 @@ form small {
 .boton-secundario:hover {
     background-color: #4b5563;
 }
+.boton {
+    transition: background-color 0.3s ease;
+}
 
 /*Tarjetas con sombra*/
 
@@ -518,5 +524,56 @@ form small {
 .tarjeta figure:hover {
     transform: translateY(-10px); /*Valor negativo va hacia arriba*/
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-
+    transform: scale(1.03);/*Escalar .1 = del tamaño original*/
+    transform: scale(1.1, 0.9);/*X y Y por separado*/
+    transform: translateY(-5px); /*Desplazar .negativo=Hacia arriba*/
+    transform: rotate(5deg); /*Girar . grados*/
+    transform: skew(10deg);  /*inclinar . grados*/
+    transform: translateY(-5px) scale(1.03);
 }
+
+/*Definir la transición*/
+@keyframes aparecer {
+    from {
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Aplica*/
+.tarjeta {
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes pulso {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.etiqueta {
+    animation: pulso 2s ease-out infinite;
+}
+
+/*Aplicacion de filtros*/
+.galeria-grid img:hover {
+    filter: grayscale(100%);
+    filter: blur(2px);
+    filter: brightness(1.2);
+    filter: contrast(1.5);
+    filter: saturate(2);
+    filter: sepia(60%);
+    filter: invert(90%);
+    filter: opacity(50%);
+    filter: grayscale(100%) brightness(1.1);
+}
+
+
+
