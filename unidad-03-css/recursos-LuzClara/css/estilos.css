@@ -1,0 +1,98 @@
+/*ESTUDIO LUZ CLARA*/
+
+/*VARIABLES Y CONFIGURACIÓN*/
+/*Una VARIABLE guarda un valor con un nomber, para poder reutilizarlo.
+
+se declaran dentro :root, que represente el elemento html y es el ancestro de todos, todos */
+
+:root{
+    /*paleta de colores*/
+    --color-tinta: #1a1a1a;
+    --color-suave: #6b6b6b;
+    --color-marca: #2c3e50;
+    --color-acento: #c87941;
+    --color-acento-osc: #a45f2e;
+    --color-fondo: #f0eee9;
+    --color-fondo-alt: #dddad3;
+    --color-blanco: #ffffff;
+
+
+    /*TIPOGRAFIA*/
+--fuente-titulo: geogia,"times new roman", serif;
+--fuente-texto: 'segoe UI', Arial, sans-serif;
+
+/*ESPACIADO*/
+--esp-xs: 0.8rem; /*8px*/
+--esp-sm: 1.6rem; /*16px*/
+--esp-md: 2.4rem; /*24px*/
+--esp-lg: 4rem; /*40px*/
+--esp-xl: 8rem; /*80px*/
+
+/* OTROS ELEMENTOS */
+    --Radio: 0.6rem;/*6px*/
+    --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);/*6px*/
+    --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);/*tarjetas*/
+    --sombra-2: 0 0.8rem 2.0rem rgba(0,0,0,.16);/*elementos elevados*/
+    --transicion: 0.25s ease;
+    --ancho-max: 120rem;/*1200*/
+}
+
+/* RESET Y BASE TIPOGRAFICA */
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+/* LA BASE DEL TAMAÑO. La técnica del 62.5% */
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: var(--fuente-texto);
+    line-height: 1,6;
+    color:var(--color-tinta);
+    background-color: var(--color-fondo);
+}
+
+/* JERARQUÍ DE TITULOS */
+h1, h2, h3{
+    font-family: var(--fuente-titulo);
+    line-height: 1.2;
+    color: var(--color-marca);
+}
+
+h1{font-size: 4.8rem;}
+h2{font-size: 3.2rem;}
+h3{font-size: 2.0rem;}
+
+p{
+    margin-bottom: var(--esp-sm);
+}
+a{
+    color: var(--color-acento);
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*COTENEDORES Y SECCIONES*/
+.seccion{
+    max-width: var(--ancho-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--esp-xl) var(--esp-md);
+}
+
+.seccion-alterna{
+    background-color: var(--color-fondo-alt);
+    max-width: none;
+}
+
