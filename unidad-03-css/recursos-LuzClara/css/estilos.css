@@ -1,98 +1,403 @@
-/*ESTUDIO LUZ CLARA*/
+/*Estudio Luz Clara*/
 
-/*VARIABLES Y CONFIGURACIÓN*/
-/*Una VARIABLE guarda un valor con un nomber, para poder reutilizarlo.
+/*Variables y Configuración*/
+/*Una VARIABLE guarda un valor con un nombre para poder reutilizarlo.
 
-se declaran dentro :root, que represente el elemento html y es el ancestro de todos, todos */
+Se declaran dentro de :root, que represente el elemento html y es el ancestro de todos. Todos los elementos del documento lo pueden utilizar*/
 
-:root{
-    /*paleta de colores*/
-    --color-tinta: #1a1a1a;
-    --color-suave: #6b6b6b;
-    --color-marca: #2c3e50;
-    --color-acento: #c87941;
-    --color-acento-osc: #a45f2e;
-    --color-fondo: #f0eee9;
-    --color-fondo-alt: #dddad3;
-    --color-blanco: #ffffff;
+:root {
+    /*Paleta de colores*/
+    --color-tinta: #1a1a1a; /*texto principal. casi negro*/
+    --color-suave: #6b6b6b; /*texto secundario, pies de foto*/
+    --color-marca: #2c3e50; /*El azul del estudio*/
+    --color-acento: #c87941; /*terracota de los botones*/
+    --color-acento-osc: #a46f2e; /*terracota oscuro*/
+    --color-fondo: #fafaf8; /*blanco roto. blanco no puro*/
+    --color-fondo-alt: #f0eee9; /*para alternar fondos secciones*/
+    --color-linea: #dddad3; /*bordes y separadores*/
+    --color-blanco: #fff; /*blanco puro*/
 
+    /*Tipografía*/
+    --fuente-titulo: Georgia, 'Times New Roman', serif;
+    --fuente-texto: 'Segoe UI', Arial, sans-serif;
 
-    /*TIPOGRAFIA*/
---fuente-titulo: geogia,"times new roman", serif;
---fuente-texto: 'segoe UI', Arial, sans-serif;
+    /*Espaciado. Conversión 1rem = 10px*/
+    --esp-xs: 0.8rem; /*8px*/
+    --esp-sm: 1.6rem; /*16px*/
+    --esp-md: 2.4rem; /*24px*/
+    --esp-lg: 4rem; /*40px*/
+    --esp-xl: 8rem; /*80px*/
 
-/*ESPACIADO*/
---esp-xs: 0.8rem; /*8px*/
---esp-sm: 1.6rem; /*16px*/
---esp-md: 2.4rem; /*24px*/
---esp-lg: 4rem; /*40px*/
---esp-xl: 8rem; /*80px*/
-
-/* OTROS ELEMENTOS */
-    --Radio: 0.6rem;/*6px*/
-    --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);/*6px*/
-    --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);/*tarjetas*/
-    --sombra-2: 0 0.8rem 2.0rem rgba(0,0,0,.16);/*elementos elevados*/
+    /*Otros elementos*/
+    --radio: 0.6rem; /*6pc*/
+    --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06); /*apenas separado*/
+    --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10); /*tarjetas*/
+    --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16); /*elementos elevados*/
     --transicion: 0.25s ease;
-    --ancho-max: 120rem;/*1200*/
+    --ancho-max: 120rem; /*1200px*/
 }
 
-/* RESET Y BASE TIPOGRAFICA */
-*{
+/*reset y base tipográfica*/
+
+* { /*El asterisco es un selector universal, abarca todos los elementos de la pagina*/
     margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
+    padding: 0;
+    box-sizing: border-box; /*La línea mas importante del reset; porque sin ella, si a una caja le damos un width: 300px y un padding: 20px y un border de 2px, la caja en realidad mide: 300+20+20+2+20 = 344px. con esta línea el relleno y el borde se descuentan hacia adentro*/
+
 }
 
-/* LA BASE DEL TAMAÑO. La técnica del 62.5% */
-html{
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+/*La Base del tamaño. La técnica del 62.5%*/
+html {
+    font-size: 62.5%; /*por omision el navegador usa 16px para el tamaño base. el 62.5% de 16 es exactamente 10. Esta relacionado a la accesibilidad y la parte responsive*/
+
+    scroll-behavior: smooth; /*Provoca saltos suaves al usar navegación por anclas*/
 }
 
-body{
+body {
     font-size: 1.6rem;
     font-family: var(--fuente-texto);
-    line-height: 1,6;
-    color:var(--color-tinta);
+    line-height: 1.6;
+    color: var(--color-tinta);
     background-color: var(--color-fondo);
 }
 
-/* JERARQUÍ DE TITULOS */
-h1, h2, h3{
+/*Jerarquía de títulos*/
+h1, h2, h3 {
     font-family: var(--fuente-titulo);
     line-height: 1.2;
     color: var(--color-marca);
 }
 
-h1{font-size: 4.8rem;}
-h2{font-size: 3.2rem;}
-h3{font-size: 2.0rem;}
+h1 {font-size: 4.8rem;}
+h2 {font-size: 3.2rem;}
+h3 {font-size: 2.0rem;}
 
-p{
+p {
     margin-bottom: var(--esp-sm);
 }
-a{
+
+a {
     color: var(--color-acento);
     text-decoration: none;
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/*COTENEDORES Y SECCIONES*/
-.seccion{
+/*Contenedores y Secciones*/
+.seccion {
+    max-width: var(--ancho-max);/*Toma todo el ancho disponible*/
+    margin-left: auto;
+    margin-right: auto;/*Centra el bloque. Repartiendo el espacio sobrante por igual*/
+    padding: var(--esp-xl) var(--esp-md);/*Dos valores: el primero afecta arriba y abajo y luego izquierda y derecha*/
+}
+
+.seccion-alterna {
+    background-color: var(--color-fondo-alt);
+    max-width: none; /*Se anula el ancho máximo para que el fondo ocupe todo el ancho de pantalla*/
+}
+
+.seccion > * {
     max-width: var(--ancho-max);
     margin-left: auto;
+    margin-right: auto;/*El contenido de esta sección se limita y se centra. el selector > significa "hijo directo", alcanza solo al primer nivel de elementos. No a los nietos*/
+}
+
+.seccion-titulo {
+    margin-bottom: var(--esp-sm);
+    text-align: center;
+}
+
+.seccion-entrada {
+    max-width: 65ch;/*La unidad "ch" equivale al ancho del caracter "0" de la fuente en uso, son 65 caracteres por linea para una lectura más comoda*/
+    margin-left: auto;
     margin-right: auto;
-    padding: var(--esp-xl) var(--esp-md);
+    margin-bottom: var(--esp-lg);
+    text-align: center;
+    color: var(--color-suave);
 }
 
-.seccion-alterna{
+.pagina-encabezado {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: var(--esp-xl) var(--esp-md) var(--esp-lg);
+    /*Tres valores: arriba, los lados y abajo*/
+    text-align: center;
+}
+
+.pagina-titulo {
+    margin-bottom: var(--esp-xs);
+}
+
+.pagina-bajada {
+    color: var(--color-suave);
+    font-size: 1.8rem;
+}
+
+.subtitulo {
+    margin-top: var(--esp-md);
+    margin-bottom: var(--esp-xs);
+}
+
+/*CABECERA Y MENU*/
+.cabecera {
+    display: flex; /*Activa FLEXBOX*/
+    justify-content: space-between;/*COLOCANDO EL PRIMER ELEMENTO AL INICIO Y EL SEGUNDO AL FINAL*/
+    align-items: center;
+    padding: var(--esp-sm);
+    border-bottom: 0.1rem solid var(--color-linea);
+    position: sticky;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--esp-xs);
+    color: var(--color-marca);
+}
+
+.logo:hover .logo-icono {
+    transform: rotate(-8deg);/*cuando el cursor este sobre el logo  se vuelve -8 grados*/
+}
+
+.logo-texto {
+    font-family: var(--fuente-titulo);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    gap: var(--esp-sm);
+    list-style: none;
+}
+
+.menu-enlace {
+    display: inline-block;/*Esta linea permine aplicar relleno vertical*/
+    padding: var(--esp-xs) var(--esp-sm);
+    color: var(--color-tinta);
+    font-weight: 600;
+    border-radius: var(--radio);
+    transition: background-color var(--transicion), color var(--transicion);
+}
+
+.menu-enlace:hover {
     background-color: var(--color-fondo-alt);
-    max-width: none;
+    color: var(--color-marca);
 }
 
+.menu-enlace:focus {
+    outline: 0.2rem solid var(--color-acento);
+    outline-offset: 0.2rem; /*Se activa con la tecla tab al llegar al enlace. Permite navegar el sitio con el teclado*/
+}
+
+.menu-enlace.activo {/*dos clases del mismo elemento. Significa que el elemento que tenga las 2 clases es la marca de la página actual o activa*/
+    color: var(--color-acento);
+}
+
+/*PORTADA*/
+/*Aquí ca la imagen de fondo*/
+.portada {
+    background-image: url('../Recursos/portada.webp');
+    background-color: var(--color-marca);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;/*Si la imagen fuera más pequeña que el contenedor no se repetiría*/
+    min-height: 55rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--esp-md);
+    text-align: center;
+}
+
+.portada-caja {
+    background-color: rgba(0,0,0,.45);
+    padding: var(--esp-lg);
+    border-radius: var(--radio);
+    max-width: 70rem;
+}
+
+.portada-titulo {
+    color: var(--color-blanco);
+    margin-bottom: var(--esp-sm);
+}
+
+.portada-bajada {
+    color: var(--color-blanco);
+    font-size: 1.8rem;
+    margin-bottom: var(--esp-md);
+}
+
+/*SERVICIOS - FLEXBOX*/
+.fila-servicios {
+    display: flex;
+    gap: var(--esp-md);
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    flex: 1 1 30rem; /*1 flex grow: Si sobra espacio crece. 1 flex-shrink se encoge si falta espacio. 30rem flex-basis: parte de un tamaño base 300px*/
+    background-color: var(--color-blanco);
+    padding: var(--esp-md);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta-icono {
+    color: var(--color-acento); margin: 0 auto;
+}
+
+.tarjeta-titulo {
+    margin-bottom: var(--esp-xs);
+}
+
+.tarjeta-texto {
+    color: var(--color-suave);
+    flex-grow: 1;/*En 1 hace que el parrafo absorba  todo el espacio vertical sobrante de la tarjeta*/
+}
+
+.tarjeta-precio {
+    font-weight: 700;
+    color: var(--color-marca);
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    padding-top: var(--esp-sm);
+    border-top: 0.1rem solid var(--color-linea);
+}
+
+/*GALERIA · CSS GRID*/
+
+/*GRID dos dimensiones, cuadrícula de filas y columnas*/
+.rejilla-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    /*Se lee de andentro hacia afuera: minmax (28rem, 1fr: cada columna mida 280px y como máximo una fracción del espacio disponible. repeat(auto-fit: crea tantas como qupan con esa medida. JUNTAS: pone todas las columnas que quepan en 280 px y reparte el espacio restante entre ellas. Responsive sin media queris*/
+    gap: var(--esp-sm);
+}
+
+.galeria-pieza {
+    position: relative; /*NO mueve la figura, solo le declara un punto de referencia para los hijos*/
+    overflow: hidden; /*Recorta lo que sobresale  de los limites de la figura. Permite que la img se agrande  al pasar el cursor sin invadir las figuras vecinas*/
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-1);
+}
+
+.pieza-destacada {
+    grid-column: span 2; /*ocupa dos columnas*/
+    grid-row: span 2; /*ocupa dos filas*/
+}
+
+.galeria-pieza img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Recorta la imagen por el centro*/
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(60%);/*el filtro quita el 60% del color*/
+}
+
+.galeria-pieza:hover img {
+    transform: scale(1.6);
+    filter: grayscale(0);
+}
+
+.galeria-pie {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;/*Absolute se ubica con respecto al ancestro más cercano con posición relative*/
+    background-color: rgba(0,0,0,.65);
+    color: var(--color-blanco);
+    padding: var(--esp-xs);
+    font-size: 1.3rem;
+    text-align: center;
+    transform: translateY(100%);/*desplaza hacia abajo 100% de su propia altura*/
+    transition: transform var(--transicion);
+}
+
+.galeria-pieza:hover .galeria-pie {
+    transform: translateY(0);/*El pie de foto vuelve a su posición deslizandose desde abajo*/
+}
+
+/*EQUIPO*/
+.rejilla-equipo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    gap: var(--esp-md);
+}
+
+.ficha {
+    background-color: var(--color-blanco);
+    padding: var(--esp-md);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-1);
+    text-align: center;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.ficha-foto {
+    width: 14rem;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto var(--esp-md);
+    border: 0.3rem solid var(--color-fondo-alt);
+}
+
+.ficha-nombre {
+    margin-bottom: 0.2rem;
+}
+
+.ficha-rol {
+    color: var(--color-acento);
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: var(--esp-xs);
+}
+
+.ficha-texto {
+    color: var(--color-suave);
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+/*DOS COLUMNAS*/
+.dos-columnas {
+    display: flex;
+    gap: var(--esp-lg);
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.columna-texto {
+    flex: 1 1 32rex;
+}
+
+.columna-imagen {
+    flex: 1 1 32rex;
+    margin: 0;
+}
+
+.columna-imagen img {
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-2);
+    width: 100%;
+}
+
+.imagen-pie {
+    margin-top: var(--esp-xs);
+    font-size: 1.3rem;
+    color: var(--color-suave);
+    text-align: center;
+    font-style: italic;
+}
