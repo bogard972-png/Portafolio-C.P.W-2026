@@ -321,6 +321,7 @@ img {
 
 .cabecera {
   display: flex;
+  flex-direction: column;
   /* OJO: ACTIVA FLEXBOX. Se declara en el CONTENEDOR, nunca en los hijos.
      Los hijos directos —el logo y la navegación— se convierten en
      "elementos flexibles" y se colocan en fila automáticamente.       */
@@ -928,7 +929,7 @@ img {
 .cita {
   max-width: 70rem;
   margin: 0 auto;
-  padding: var(--esp-lg);
+  padding: var(--esp-md);
   background-color: var(--color-blanco);
   border-left: 0.5rem solid var(--color-acento);
   /* Solo el borde IZQUIERDO. Es la forma clásica de marcar una cita:
@@ -1944,18 +1945,25 @@ img {
      3. Verificar el contraste en webaim.org/resources/contrastchecker
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
         estáscreen el foco */
-@media (max-width: 768)  {
+@media (min-width: 768)  {
   .cabacera{
   flex-direction: colum;
   /*La cabecera de fila a columa*/
+  justify-content: space-between;
+  align-items: center;
   gap: var(--esp-md);
   }
-  
-  h1{font-size: 3.2rem ;}
-  h2{font-size: 2.4rem;}
+
+  h1{font-size: 4.0rem ;}
+  h2{font-size: 2.8rem;}
 
   .seccion{
-    padding: var(--esp-lg) var(--esp-sm);
-
+    padding: var(--esp-xl) var(--esp-md);  
+  }
+  .portada-caja{
+    padding: var(--esp-lg);
+  }
+  .cita{
+    padding: var(--esp-lg);
   }
 }
