@@ -199,9 +199,9 @@ h1, h2, h3 {
      las dos líneas quedan muy separadas.                              */
   color: var(--color-marca);
 }
-
-h1 { font-size: 4.8rem; }   /* 48px */
-h2 { font-size: 3.2rem; }   /* 32px */
+/*Tamaños movil*/
+h1 { font-size: 3.2rem; }   /* 32px */
+h2 { font-size: 2.4rem; }   /* 24px */
 h3 { font-size: 2.0rem; }   /* 20px */
 /* OJO: Los tamaños guardan PROPORCIÓN entre sí: cada nivel es
    notoriamente más pequeño que el anterior. Elegir números al azar
@@ -250,7 +250,7 @@ img {
      contenedor: sin el max-width de arriba, auto no tendría nada
      que repartir.                                                     */
 
-  padding: var(--esp-xl) var(--esp-md);
+  padding: var(--esp-lg) var(--esp-sm);
   /* Dos valores: el primero es arriba y abajo, el segundo izquierda y
      derecha. El relleno lateral es lo que impide que el texto quede
      pegado al borde de la pantalla en un teléfono.                    */
@@ -325,7 +325,7 @@ img {
   /* OJO: ACTIVA FLEXBOX. Se declara en el CONTENEDOR, nunca en los hijos.
      Los hijos directos —el logo y la navegación— se convierten en
      "elementos flexibles" y se colocan en fila automáticamente.       */
-
+  gap: var(--esp-sm);
   justify-content: space-between;
   /* Controla el EJE PRINCIPAL, que con la dirección por omisión (fila)
      es el HORIZONTAL.
@@ -341,7 +341,7 @@ img {
      OJO: RECORDAR: si la dirección fuera  column, estos dos ejes se
        INTERCAMBIAN. Es la confusión más común de Flexbox.             */
 
-  padding: var(--esp-sm) var(--esp-md);
+  padding: var(--esp-sm);
   background-color: var(--color-blanco);
   border-bottom: 0.1rem solid var(--color-linea);
 
@@ -522,7 +522,7 @@ img {
      Esta capa oscura es lo que garantiza que el texto blanco se lea
      sobre una fotografía que puede tener zonas claras.                */
 
-  padding: var(--esp-lg);
+  padding: var(--esp-sm);
   border-radius: var(--radio);
   max-width: 70rem;   /* 700px */
 }
@@ -1944,26 +1944,125 @@ img {
      2. Comprobar el sitio en dos navegadores distintos
      3. Verificar el contraste en webaim.org/resources/contrastchecker
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
-        estáscreen el foco */
-@media (min-width: 768)  {
-  .cabacera{
-  flex-direction: colum;
-  /*La cabecera de fila a columa*/
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--esp-md);
-  }
+        está el foco */
 
-  h1{font-size: 4.0rem ;}
-  h2{font-size: 2.8rem;}
-
-  .seccion{
-    padding: var(--esp-xl) var(--esp-md);  
+  /*Modalidad movil first*/
+@media (min-width: 768px) {
+  .cabecera {
+    flex-direction: row;
+    /*La cabecera de fila a columna*/
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--esp-md);
   }
-  .portada-caja{
+  h1 {font-size: 4.0rem;}
+  h2 {font-size: 2.8rem;}
+
+  .seccion {
+    padding: var(--esp-xl) var(--esp-md);
+  }
+  .portada-caja {
     padding: var(--esp-lg);
   }
-  .cita{
+  .cita {
     padding: var(--esp-lg);
   }
 }
+
+/*a partir de los 1024px - vista escritorio*/
+@media (min-width: 1024px) {
+  h1 { font-size: 4.8rem; } /*h1 recupera el tamaño original*/
+
+  .portada { min-height: 55rem; } /*una portada con 50px de alto ocupa casi toda la pantalla de un celular*/
+
+  .seccion { padding: var(--esp-xl) var(--esp-lg); }
+}
+
+/*CUÁNTOS PUNTOS DE QUIEBRE HACEN FALTA
+Para Luz Clara basta con estos dos
+
+  base              hasta 767px             telefono
+  768px              tableta
+  1024px             escritorio*/
+
+  /*CÓMO SE ACUMULAN LAS REGLAS
+  en una pantalla de 1200px se aplican las TRES REGLAS:
+  1. La base 1200px
+  2. la de min-width: 768px (1200 es mayor que 768)
+  3. la de min-width: 1024px (1200 es mayor que 1024) 
+  Donde se repite una propiedad, gana la última.
+  Por eso el orden importa: de menor a mayor.
+  Si la de 1024 estuviera antes de las regla de 768, la última la anularía en pantallas grandes*/
+
+/*LA ESCLA COMPLETA, POR TRAMOS*/
+
+/*BASE - TELEFONO*/
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.8rem; }
+body { font-size: 1.6rem; }
+
+/*ESCALA TABLETS*/
+
+@media (min-width: 768px) {
+h1 { font-size: 4.0rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 1.9rem; }
+}
+
+/*ESCALA ESCRITORIO*/
+
+@media (min-width: 1024px) {
+h1 { font-size: 4.8rem; }
+h2 { font-size: 3.2rem; }
+h3 { font-size: 2.0rem; }
+}
+
+/*LA TABLA DE contacto.html*/
+.tabla-envoltorio { /*despues de lo 360px no hay forma razonable de que una tabla quepa sin perder la relacion entre los datos*/
+  overflow-x: auto;  /*crea su propia barra de desplazamiento*/
+}
+
+@media (max-width: 768px) { /*Se uas  max en luga de min porque em media query ataca la parte movil, e lajsute es solo para movil*/
+  .tabla th,
+  .tabla td {
+    padding: var(--esp-xs);
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width:768px) {
+  main p { max-width: 65ch; }
+}
+/*en movil no hace falta adaptar texto de los párrafos, la pantalla lo hace. la adptación es pata de tablets hacia arriba por comodidad de lectura*/
+
+/* PUNTOS DE QUIEBRE
+base              hasta 767px             telefono
+  768px              tableta
+  1024px             escritorio*/
+
+  /*TABLETA . a partir de 768px
+  @media (min-width:768) {
+  cabecera e fila
+  títulos más grandes
+  más relleno en las secciones
+  }*/
+
+  /*ESCRITORIO . a partir de 1024px
+  @media (min-width:1024) {
+  títulos a tamaño completo
+  portada más alta
+  }*/
+
+  /*AJUSTES SOLO PARA PANTALLA PEQUEÑA
+  @media (max-width:768) {
+  celdas de la tabla mas compactas 
+  }*/
+
+/*ACCESIBILIDAD DEL MOVIMIENTO
+  @media (prefer-reduce-motion: reduce) {
+  Va siempre al final de todo. Desactivas las animaciones desde el so del disposito en uso. 
+  }*/
+
+  /*Estos encabezados NO son decorativos.
+  Quien abra esta hoja de estilos o usted mismo dentro de 6 meses sepat o tenga una idea de lo que se hizo y de la estrategia que se usó*/
