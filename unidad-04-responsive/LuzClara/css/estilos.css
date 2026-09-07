@@ -2140,3 +2140,45 @@ base              hasta 767px             telefono
     flex-direction: rom;
   }
 }
+
+@media(orientation: landscape) and (max-height: 500px){
+  .portada{
+    min-height: 100vh;
+    padding: var(--esp-md);
+  }
+  .portada-titulo {font-size: 2.4rem;}
+  .portada-bajada {font-size: 1.5rem;}
+}
+@media print{
+  .cabecera{
+  .menu-boton{display: none;}
+  .pie{display: none;}
+  .volver-arriba{display: none;}
+  .fila-etiquetas{display: none;}
+  }
+  body{
+  background: var(--color-blanco);
+  color: black;
+  font-size: 11pt;
+  }
+}
+.seccion,
+.seccion-alterna{
+  background: none;
+  padding: 0;
+  max-width: none;
+}
+.tarjeta,
+.ficha,
+.figure,
+.tabla{
+  page-break-inside: avoid;
+}
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+main a[href^="http"]::after{
+  content:"("attr(href)")";
+  font-size: 9pt;
+  color: #555;
+}
