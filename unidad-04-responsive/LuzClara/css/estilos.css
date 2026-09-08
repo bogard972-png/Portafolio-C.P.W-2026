@@ -406,11 +406,11 @@ img {
      necesidad de reescribir nada.                                    */
 }
 
-/*la base para movil*/
+/*LA BASE PARA MOVIL*/
 .menu {
   display: flex;
-  flex-direction: column;
-  gap: e;
+  flex-direction: column; /*en movil el menu vuelve a columnas*/
+  gap: 0;
   list-style: none;
   /* El menú es una LISTA por su significado —es un conjunto de
      enlaces del mismo nivel— pero no debe VERSE como lista. Por eso
@@ -418,44 +418,51 @@ img {
   width: 100%;
   display: none;
 }
-.menu-contro{
+
+.menu-control {
   position: absolute;
   opacity: 0;
   width: 0.1rem;
   height: 0.1rem;
 }
-.menu-boton{
+ /*EL BOTON DEL MENU HAMBURGUEZA*/
+.menu-boton {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: var(--esp-xs);
   cursor: pointer;
   padding: var(--esp-xs);
 }
-.menu-barra{
+
+.menu-barra {
   display: block;
   width: 2.4rem;
   height: 0.3rem;
   background-color: var(--color-marca);
-  border-radius: 0.2rem ;
+  border-radius: 0.2rem; /*Las 3 barras del ícono dibujadas con css*/
 }
-
 .menu-barra + .menu-barra {
   margin-top: 0.4rem;
 }
-.menu-texto{
+
+.menu-texto {
   font-size: 1.4rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-/*menu abierto*/
+
+/*Menu abierto cuando la casilla esta marcada*/
 .menu-control:checked ~ .menu {
   display: flex;
   flex-direction: column;
 }
-.menu-boton:focus-within{
+
+.menu-boton:focus-within {
   outline: 0.2rem solid var(--color-acento);
-  outline-offset: 0.2rem solid var(--color-acento);
+  outline-offset: 0.2rem;
 }
+
 
 .menu-enlace {
   /*display: inline-block;*/
@@ -464,9 +471,9 @@ img {
      el relleno vertical. Sin esta línea, el padding de arriba y abajo
      de la regla siguiente no haría ningún efecto y el área para hacer
      clic quedaría del alto exacto del texto.                          */
-
-  display: block;/*ocupa todo el ancho disponible y el área para */
-  padding: var(--esp-xs) var(--esp-sm);
+    
+  display: block; /*ocupa todo el ancho disponible y el área para tocar es mayor*/
+  padding: var(--esp-sm);
   /* Amplía el ÁREA PULSABLE. No es decorativo: un enlace pequeño es
      difícil de acertar con el dedo en un teléfono.                    */
 
@@ -477,7 +484,7 @@ img {
   /* OJO: La transición va en la regla BASE, no dentro de :hover.
      Si se pusiera en :hover, la entrada sería suave pero la salida
      brusca: al quitar el cursor el color volvería de golpe.           */
-  border-bottom: 0.1rem solid var(--radio);
+  border-bottom: 0.1rem solid var(--color-linea);
   text-align: center;
 }
 
@@ -582,7 +589,6 @@ img {
   font-size: 1.8rem;
   margin-bottom: var(--esp-md);
 }
-
 .video-envoltorio {
   width: 100%;
   max-width: 96rem;
@@ -849,6 +855,95 @@ img {
      desde abajo.                                                      */
 }
 
+/*Panel fuera de la pantalla. Patrón Off canvas*/
+.panel-control {
+  position: absolute;
+  opacity: 0;
+  width: 0.1rem;
+  height: 0.1rem;
+}
+
+.panel-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28rem;/*faltó*/
+  height: 100vh;
+  background-color: var(--color-blanco);
+  box-shadow: var(--sombra-3);
+  padding: var(--esp-lg) var(--esp-md);
+  z-index: 200;
+  transform: translateX(-100%);/*aqui vive furra de la pantalla y se deasplaza 100 de su propio ancho hacia la izquierda*/
+  overflow-y:auto;
+}
+
+/*Hacer que el panel se deslice*/
+.panel-lateral {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+/*Abierto cunado la casilla esta marcada*/
+.panel-control:checked ~ .panel-lateral {
+  transform: translateX(0);
+  /*vuelve a su posición entra deslizandose desd la izquierda*/
+}
+
+/*La capa oscura de fondo-Agregar .panel-fondo*/
+.panel-fondo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  /* Por debajo del panel (200) y por encima de la cabecera (100) */
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  /* No se usa display: none porque no se puede animar */
+}
+
+.panel-control:checked ~ .panel-fondo {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+
+.panel-control:checked ~ .panel-lateral::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 28rem;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: -1; /*oscurece el resto de la página mientras el panel esta abierto*/
+}
+
+/*El boton  yel cierre*/
+.panel-boton,
+.panel-cerrar {
+  display: inline-block;
+  padding: var(--esp-xs) var(--esp-md);
+  background-color: var(--color-marca);
+  color: var(--color-blanco);
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.panel-cerrar {
+  margin-top: var(--esp-md);
+  background-color: var(--color-fondo-alt);
+  color: var(--color-tinta);
+}
+
+.panel-boton:focus-within,
+.panel-cerrar:focus-within {
+  outline: 0.2rem solid var(--color-acento);
+  outline-offset: 0.2rem;
+}
 
 /* 8 · EQUIPO · CSS GRID           tema de la S17 */
 
@@ -947,6 +1042,18 @@ img {
   font-style: italic;
 }
 
+/*base . teléfono. una columna. Layout Shifter*/
+#historia .dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'imagen'
+                       'texto';
+  gap: var(--esp-md);
+  /*en movil la imagen va arriba. Una foto capta la atención y situa el contenido antes de leer*/
+}
+
+#historia .columna-imagen {grid-area: imagen;}
+#historia .columna-texto {grid-area: texto;}
 
 /* 10 · LISTAS Y GLOSARIO           tema de la S14 */
 
@@ -1052,9 +1159,9 @@ img {
   font-size: 1.4rem;
   text-align: right;
 }
-
+ /*Pequeños cambios para base teléfono*/
 #testimonio p,
-.cita-texto{
+.cita-texto {
   font-size: 1.6rem;
   line-height: 1.6;
 }
@@ -1388,13 +1495,21 @@ img {
   margin-bottom: 0;
 }
 
-/* los cinco patrones soblas 5 formas en que un diseño puede recorganizarse
-al cambiar el ancho.
+/*LOS CINCO PATRONES.
+Son las 5 formas en  que un diseño puede reorganizarse al cambiar el ancho.
 
-1. mostly fluid. una rejilla que se encoge y, al llegar al minimo sus elemento bajan de linea. en pantalla grande se detiene y se centra.
+1. Mostly Fluid. Una rejilla que se encoge y, al llegar al mínimo sus elementos bajan de linea. En pantalla grande se detiene y se centra.
 
-2. column drop. columas que se apilan una debajo de la otra al angostar. lo hace flex-warp:warp 
-*/
+2. Column Drop. columnas que se apilan una debajo de la otra al angostar. Lo hace flex-wrap: wrap.
+
+3. Layout Shifter. Las zonas de posición, no solo de tamaño. Se resuelve con grid.
+
+4. Tiny Tweaks. Solo ajustan tamaños y espacios, para contenido de una sola columna.
+
+5. Off Canvas. Contenido que vive fuera de la pantalla y entra al pedirlo. Por ejemplo en menú hamburgueza*/
+
+
+
 
 /* 16 · MOVIMIENTO           tema de la S19
 
@@ -1409,6 +1524,7 @@ al cambiar el ancho.
 .ficha:hover {
   transform: translateY(-0.6rem);
   box-shadow: var(--sombra-3);
+
   /* Dos cambios que van juntos: el elemento sube Y su sombra crece.
      Si solo subiera, se vería como un salto; si solo creciera la
      sombra, se vería como un parpadeo. Juntos producen la sensación de
@@ -2156,43 +2272,48 @@ base              hasta 767px             telefono
   /*Estos encabezados NO son decorativos.
   Quien abra esta hoja de estilos o usted mismo dentro de 6 meses sepat o tenga una idea de lo que se hizo y de la estrategia que se usó*/
 
-  /*media querie para pantalla grande*/
-  @media(min-width: 768px) {
-    .cabecera{
+/*Media querie para panttalla grande*/
+  @media (min-width: 768px) {
+    .cabecera {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
-    .menu{
+    .menu {
       flex-direction: row;
       gap: var(--esp-sm);
       width: auto;
     }
-    .menu-enlace{
+    .menu-enlace {
       display: inline-block;
       padding: var(--esp-xs) var(--esp-sm);
       border-bottom: none;
       border-radius: var(--radio);
     }
   }
-@media(min-width: 768px){
-  .menu-boton{
+
+@media (min-width: 768px) { /*Aquí si corresponde el display none porque no deb existir en pantallas grandes*/
+  .menu-boton {
     display: none;
   }
-  .menu{
+  .menu {
     display: flex;
-    flex-direction: rom;
+    flex-direction: row;
   }
 }
 
-@media(orientation: landscape) and (max-height: 500px){
-  .portada{
+/*Usar orientación
+Aplicar reglas según si el dispositivo esta en vertical u horizontal*/
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .portada {
     min-height: 100vh;
     padding: var(--esp-md);
   }
-  .portada-titulo {font-size: 2.4rem;}
-  .portada-bajada {font-size: 1.5rem;}
-}
+  .portada-titulo { font-size: 2.4rem;}
+  .portada-bajada { font-size: 1.5rem;}
+} 
+/*Ajustes de pantalla pequeña de video*/
 @media (max-width: 767px) {
   .video-envoltorio {
     border-radius: 0;
@@ -2202,81 +2323,144 @@ base              hasta 767px             telefono
   }
 }
 
-@media(min-widh: 768){
-  #testimonio p{
-  font-size: 1.8rem;
-  line-height: 1.7;
+/*Pequeños cambios para base tableta*/
+@media (min-width: 768px) {
+  #testimonio p {
+    font-size: 1.7rem;
+    max-width: 65ch;
+    /*El limite en la linea aparece despues de tableta*/
   }
-  .cita-texto{font-size: 2.2rem;}
+  .cita {padding: var(--esp-lg);}
+  .cita-texto {font-size: 2.0rem;}
 }
-@media (max-width: 600px){
-  .mosaico{
-  grid-template-columns: 1fr;
-  grid-auto-rows: 24rem ;
+
+/*Pequeños cambios para base escritorio*/
+@media (min-width: 1024px) {
+  #testimonio p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    /*El limite en la linea aparece despues de escritorio*/
+  }
+  .cita-texto {font-size: 2.2rem;}
+}
+
+/*Mostly Fluid a .mosaico en galeria.html*/
+/*Ajustes para teléfono*/
+@media (max-width: 600px) {
+  .mosaico {
+    grid-template-columns: 1fr;
+    /*una sola columna de 360px, dos columnas de 180px las  fotos dejan de apreciarse*/
+    grid-auto-rows: 24rem;
   }
   .pieza-ancha,
   .pieza-alta,
   .pieza-grande {
-    grid-column:auto;
+    grid-column: auto;
     grid-row: auto;
+    /*Adaptar mosaico con piezas de distinto tamaño*/
   }
 }
 
+/*Mostly Fluid a .mosaico en galeria.html*/
+/*Tope para pantalla grande*/
 @media (min-width: 1400px){
-  .mosaico{
+  .mosaico {
     max-width: 130rem;
     margin-left: auto;
     margin-right: auto;
+    /*Este patron no solo se encoge, también se detiene.*/
   }
 }
 
-@media print{
-  .cabecera{
-  .menu-boton{display: none;}
-  .pie{display: none;}
-  .volver-arriba{display: none;}
-  .fila-etiquetas{display: none;}
+/*Patron Column Drop en zonas de columnas-tarjetas de index.html*/
+@media (min-width: 620px) and (max-width: 900px) {
+  .tarjeta {
+    flex: 1 1 calc(50% - var(--esp-md));
+    /*fuerza a dos por linea
+    calc(). permite mezclar unidades 50% del contenedor menos el hueco */
   }
-  body{
-  background: var(--color-blanco);
-  color: black;
-  font-size: 11pt;
+  .tarjeta:last-child {
+    flex-basis: 100%;
+    /*la tercera tarjeta ocupa el ancho completo. Es una decision estética porque se ve mejor una tarjeta ancha que agosta y sola*/
+  }
+}
+
+/*base . tableta. dos columna. Layout Shifter. Imagen a la derecha*/
+@media (min-width: 768px) {
+  #historia .dos-columnas {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 'texto imagen';
+  }
+}
+
+/*base . escritorio. Layout Shifter. Imagen a la izquierda*/
+@media (min-width: 1200px) {
+  #historia .dos-columnas {
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 'imagen texto';
+    /*La imagen cambia de lado, sin encoger o bajar*/
+  }
+}
+
+/*LAS CONSULTAS DISPONIBLES
+@media (min-width: 768px) ancho mínimo
+@media (max-width: 767px) ancho maximo
+@media (min-heigth: 600px) alto mínimo
+@media (orientation: portrait) vertical
+@media (orientation: landscape) horizontal
+@media print  impresion de la página
+@media (prefers-reduced-motion) preferencia de movimeinto
+@media (prefers-color-scheme: dark) tema oscuro
+*/
+
+@media print {
+  /*QUITAR LO QUE NO SIRVE EN EL PAPEL*/
+  .cabecera,
+  .menu-boton,
+  .pie,
+  .boton,
+  .volver-arriba,
+  .fila-etiquetas {
+    display: none;
   }
 
+  /*Ahorrar tinta*/
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+  }
 .seccion,
-.seccion-alterna{
+.seccion-alterna {
   background: none;
   padding: 0;
   max-width: none;
 }
+
 .tarjeta,
 .ficha,
-.figure,
-.tabla{
+figure,
+.tabla {
   page-break-inside: avoid;
 }
+
 h1, h2, h3 {
   page-break-after: avoid;
 }
-main a[href^="http"]::after{
-  content:"("attr(href)")";
+
+/*mostrar los enlaces*/
+main a[href^="http"]::after {
+  content: " (" attr(href) ")";
   font-size: 9pt;
   color: #555;
 }
- .video-envoltorio {
+}
+
+@media print {
+  .video-envoltorio {
     display: none;
   }
   /* Un video en papel no sirve: no se puede reproducir. Si se quiere
      dejar constancia de que existe, se puede sustituir por su imagen
      de portada en lugar de ocultarlo.                                */
-
-}
-
-@media(min-width: 620px) and (max-width:900px){
-  .tarjeta {
-    flex: 1 1 calc(50% - var(--esp-md));
-  }
-  .tarjeta: :last-child{
-    flex-basis: 100%;
-  }
 }
